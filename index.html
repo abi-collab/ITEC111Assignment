@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Stack & Queue</title>
+	<style>
+		body{
+			font-family: Century Gothic;
+		}
+	
+		.container{
+			background: white;
+			display: flex;
+			position: relative;
+			justify-content: space-around;
+			align-items: center;
+			text-align: center;
+		
+			padding: 1rem;
+			margin: 3rem;
+			border: 1px solid black;
+		}
+		.element1, .element2{
+			width: 47%;
+		}
+
+		.placeholder{
+			height: 300px;
+			width: 100%;
+			background: grey;
+		}
+		.vertical{
+			height: 100%;
+			position: absolute;
+			border-left: 2px solid black;
+
+		}
+		ul{
+			margin: 0;
+		}
+		ul li{
+			list-style: none;
+		}
+		#queueList{
+			text-align: left;
+		}
+		#stackList{
+			text-align: left;
+		}
+
+	</style>
+</head>
+<body>
+	<h2>Tolentino, Joseph Rey A. BSIT - 4B</h2>
+	<div class="container">
+	
+		<div class="element1">
+			<h1>Stack</h1>
+			
+			<small>A stack data structure follows the same principle and it’s 
+			called a LIFO data structure. LIFO means last in first out, the same 
+		way as a stack of dinner plates or other types of the stack in the real 
+	world works—the most recent element added to the stack should be the first out. </small>
+	<br><br>
+			<input type="text" name="forStack" id="Stack">
+			<button onclick="addStack()">Add</button><button onclick="popStack()">Delete</button>
+			<ol id="stackList"></ol>
+			
+			
+		</div>
+		
+		<div class="vertical"></div>
+		
+		<div class="element2">
+			<h1>Queue</h1>
+			
+			<small>A queue is a linear structure of sequential and ordered elements, 
+			similar to a stack, with a difference that it works 
+		based on the principle of first in first out (FIFO).</small>
+		<br><br>
+			<input type="text" name="forQueue" id="Queue">
+			<button onclick="addQueue()">Add</button><button onclick="shiftQueue()">Delete</button>
+			<ol id="queueList"></ol>
+			
+			
+		</div>
+	</div>
+
+
+	
+
+
+<script>
+
+	const Stack = [];
+	const Queue = [];
+
+
+	function addStack(){
+		let a = document.getElementById('Stack').value;
+		if(a==""){
+			alert("Field must not be empty, please enter something.");
+		}
+		else{
+			Stack.push(a);
+		}
+		
+		document.getElementById('Stack').value = "";
+		document.getElementById('stackList').innerHTML = Stack;
+
+		var result = "";
+		Stack.forEach(function (item) {
+    	result += "<li>" + item;
+  		});
+  
+  		document.getElementById("stackList").innerHTML = result;
+	}
+
+	function popStack(){
+		Stack.pop();
+		var result = "";
+		Stack.forEach(function (item) {
+    	result += "<li>" + item;
+  		});
+  
+  		document.getElementById("stackList").innerHTML = result;
+
+	}
+
+
+
+
+	function addQueue(){
+		let a = document.getElementById('Queue').value;
+		if(a==""){
+			alert("Field must not be empty, please enter something.");
+		}
+		else{
+			Queue.push(a);
+		}
+		
+		document.getElementById('Queue').value = "";
+		
+		var result = "";
+		Queue.forEach(function (item) {
+    	result += "<li>" + item;
+  		});
+  
+  		document.getElementById("queueList").innerHTML = result;
+
+	}
+
+	function shiftQueue(){
+		Queue.shift();
+		var result = "";
+		Queue.forEach(function (item) {
+    	result += "<li>" + item;
+  		});
+  
+  		document.getElementById("queueList").innerHTML = result;
+
+	}
+
+
+
+	
+
+
+	
+</script>
+
+</body>
+</html>
